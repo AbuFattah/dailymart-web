@@ -2,7 +2,6 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import HeaderLogged from "@/components/Header/HeaderLogged";
 import Header from "@/components/Header/Header";
 import { useThemeMode } from "@/hooks/useThemeMode";
 
@@ -10,8 +9,9 @@ const SiteHeader = () => {
   useThemeMode();
 
   let pathname = usePathname();
+  console.log(pathname);
 
-  return pathname === "/home" ? <Header /> : <HeaderLogged />;
+  return <Header />;
 };
 
 export default SiteHeader;

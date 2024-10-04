@@ -214,7 +214,7 @@ const ProductCard: FC<ProductCardProps> = ({
 
   const renderGroupButtons = () => {
     return (
-      <div className="absolute bottom-0 group-hover:bottom-4 inset-x-1 flex justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+      <div className="absolute bottom-0 group-hover:bottom-4 inset-x-4 flex flex-col gap-2 justify-center opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
         <ButtonPrimary
           className="shadow-lg"
           fontSize="text-xs"
@@ -262,7 +262,7 @@ const ProductCard: FC<ProductCardProps> = ({
   return (
     <>
       <div
-        className={`nc-ProductCard relative flex flex-col bg-transparent ${className}`}
+        className={`w-full md:max-w-[200px] relative flex flex-col bg-transparent ${className}`}
       >
         <Link href={"/product-detail"} className="absolute inset-0"></Link>
 
@@ -279,28 +279,29 @@ const ProductCard: FC<ProductCardProps> = ({
           </Link>
           <ProductStatus status={status} />
           <LikeButton liked={isLiked} className="absolute top-3 end-3 z-10" />
-          {sizes ? renderSizeList() : renderGroupButtons()}
+          {/* {sizes ? renderSizeList() : renderGroupButtons()} */}
+          {renderGroupButtons()}
         </div>
 
-        <div className="space-y-4 px-2.5 pt-5 pb-2.5">
-          {renderVariants()}
+        <div className="space-y-1 px-2.5 pt-5 pb-2.5">
+          {/* {renderVariants()} */}
           <div>
             <h2 className="nc-ProductCard__title text-base font-semibold transition-colors">
               {name}
             </h2>
-            <p className={`text-sm text-slate-500 dark:text-slate-400 mt-1 `}>
+            {/* <p className={`text-sm text-slate-500 dark:text-slate-400 mt-1 `}>
               {description}
-            </p>
+            </p> */}
           </div>
 
           <div className="flex justify-between items-end ">
             <Prices price={price} />
-            <div className="flex items-center mb-0.5">
+            {/* <div className="flex items-center mb-0.5">
               <StarIcon className="w-5 h-5 pb-[1px] text-amber-400" />
               <span className="text-sm ms-1 text-slate-500 dark:text-slate-400">
                 {rating || ""} ({numberOfReviews || 0} reviews)
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

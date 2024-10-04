@@ -3,6 +3,7 @@ import NcImage from "@/shared/NcImage/NcImage";
 import Link from "next/link";
 import { StaticImageData } from "next/image";
 
+``;
 export interface CardCategory2Props {
   className?: string;
   ratioClass?: string;
@@ -29,24 +30,26 @@ const CardCategory2: FC<CardCategory2Props> = ({
       <div
         className={`flex-1 relative w-full h-0 rounded-2xl overflow-hidden group ${ratioClass} ${bgClass}`}
       >
-        <div className="pt-14">
+        <div className="pt-2">
           <NcImage
+            width={200}
+            height={200}
             alt=""
             containerClassName="w-full h-full flex justify-center"
             src={featuredImage}
             className="object-cover rounded-2xl"
-            sizes="400px"
+            // sizes="400px"
           />
         </div>
         <span className="opacity-0 group-hover:opacity-100 absolute inset-0 bg-black bg-opacity-10 transition-opacity rounded-2xl"></span>
       </div>
       <div className="mt-5 flex-1 text-center">
-        <h2 className="text-base sm:text-lg text-neutral-900 dark:text-neutral-100 font-semibold">
+        <h2 className="text-base text-neutral-900 dark:text-neutral-100 font-semibold">
           {name}
         </h2>
-        <span className="block mt-0.5 sm:mt-1.5 text-sm text-neutral-500 dark:text-neutral-400">
+        {/* <span className="block mt-0.5 sm:mt-1.5 text-sm text-neutral-500 dark:text-neutral-400">
           {desc}
-        </span>
+        </span> */}
       </div>
     </Link>
   );

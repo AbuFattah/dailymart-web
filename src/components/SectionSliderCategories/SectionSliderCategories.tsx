@@ -5,12 +5,17 @@ import Heading from "@/components/Heading/Heading";
 // @ts-ignore
 import Glide from "@glidejs/glide/dist/glide.esm";
 import CardCategory2 from "@/components/CardCategories/CardCategory2";
-import department1Png from "@/images/collections/department1.png";
-import department2Png from "@/images/collections/department2.png";
-import department3Png from "@/images/collections/department3.png";
-import department4Png from "@/images/collections/department4.png";
+import department1Png from "@/images/categories/feeder-cat.png";
+import department2Png from "@/images/categories/diaper-cat.png";
+import department3Png from "@/images/categories/wet-wipes-cat.png";
+import department4Png from "@/images/categories/formula-milk-cat.png";
+import department5Png from "@/images/categories/liquid-cleanser-cat.png";
+import department6Png from "@/images/categories/baby-food-cat.png";
+
+// import department4Png from "@/images/collections/department4.png";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
+import { cn } from "@/utils/tailwind";
 
 export interface CardCategoryData {
   name: string;
@@ -20,28 +25,40 @@ export interface CardCategoryData {
 }
 const CATS: CardCategoryData[] = [
   {
-    name: "Travel Kits",
+    name: "Baby Feeding Bottles",
     desc: "20+ categories",
     img: department1Png,
-    color: "bg-indigo-100",
+    color: "bg-slate-100",
   },
   {
-    name: "Beauty Products",
+    name: "Baby Diapers",
     desc: "10+ categories",
     img: department2Png,
     color: "bg-slate-100",
   },
   {
-    name: "Sport Kits",
+    name: "Baby Wet Wipes",
     desc: "34+ categories",
     img: department3Png,
-    color: "bg-sky-100",
+    color: "bg-slate-100",
   },
   {
-    name: "Pets Food",
+    name: "Baby Formula Milk",
     desc: "12+ categories",
     img: department4Png,
-    color: "bg-orange-100",
+    color: "bg-slate-100",
+  },
+  {
+    name: "Baby Food",
+    desc: "12+ categories",
+    img: department6Png,
+    color: "bg-slate-100",
+  },
+  {
+    name: "Bottle and Nipple Cleanser",
+    desc: "12+ categories",
+    img: department5Png,
+    color: "bg-slate-100",
   },
 ];
 export interface SectionSliderCategoriesProps {
@@ -53,10 +70,10 @@ export interface SectionSliderCategoriesProps {
 }
 
 const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
-  heading = "Shop by department",
+  heading = "Top Categories ",
   subHeading = "",
   className = "",
-  itemClassName = "",
+  itemClassName = "!w-[230px]",
   data = CATS,
 }) => {
   const sliderRef = useRef(null);
@@ -69,7 +86,7 @@ const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
       bound: true,
       breakpoints: {
         1280: {
-          perView: 4,
+          perView: 6,
         },
         1024: {
           gap: 20,
@@ -109,7 +126,7 @@ const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             {data.map((item, index) => (
-              <li key={index} className={`glide__slide ${itemClassName}`}>
+              <li key={index} className={cn(`glide__slide ${itemClassName}`)}>
                 <CardCategory2
                   featuredImage={item.img}
                   name={item.name}
@@ -118,7 +135,7 @@ const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
                 />
               </li>
             ))}
-            <li className={`glide__slide ${itemClassName}`}>
+            {/* <li className={`glide__slide ${itemClassName}`}>
               <div
                 className={`flex-1 relative w-full h-0 rounded-2xl overflow-hidden group aspect-w-1 aspect-h-1 bg-slate-100`}
               >
@@ -162,7 +179,7 @@ const SectionSliderCategories: FC<SectionSliderCategoriesProps> = ({
                   className="opacity-0 group-hover:opacity-100 absolute inset-0 bg-black bg-opacity-10 transition-opacity"
                 ></Link>
               </div>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

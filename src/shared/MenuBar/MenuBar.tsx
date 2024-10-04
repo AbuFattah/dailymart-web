@@ -56,6 +56,7 @@ const MenuBar: React.FC<MenuBarProps> = () => {
   return (
     <>
       <button
+        title="ss"
         onClick={handleOpenMenu}
         className="p-2.5 rounded-lg text-neutral-700 dark:text-neutral-300 focus:outline-none flex items-center justify-center"
       >

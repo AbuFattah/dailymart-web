@@ -23,20 +23,20 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "" }) => {
 
   useInterval(
     () => {
-      // handleAutoNext();
+      handleAutoNext();
     },
     isRunning ? 5500 : null
   );
   //
 
-  // const handleAutoNext = () => {
-  //   setIndexActive((state) => {
-  //     if (state >= DATA.length - 1) {
-  //       return 0;
-  //     }
-  //     return state + 1;
-  //   });
-  // };
+  const handleAutoNext = () => {
+    setIndexActive((state) => {
+      if (state >= DATA.length - 1) {
+        return 0;
+      }
+      return state + 1;
+    });
+  };
 
   const handleClickNext = () => {
     setIndexActive((state) => {
@@ -97,8 +97,9 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "" }) => {
                 >
                   {isActive && (
                     <div
-                      className={`nc-SectionHero2Item__dot absolute inset-0 bg-slate-900 rounded-md ${isActive ? " " : " "
-                        }`}
+                      className={`nc-SectionHero2Item__dot absolute inset-0 bg-slate-900 rounded-md ${
+                        isActive ? " " : " "
+                      }`}
                     ></div>
                   )}
                 </div>
@@ -179,7 +180,8 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "" }) => {
               alt={item.heading}
               priority
             />
-            <div className="absolute inset-0 bg-black lg:bg-transparent  opacity-50" /> {/* Overlay div */}
+            <div className="absolute inset-0 bg-black lg:bg-transparent  opacity-50" />{" "}
+            {/* Overlay div */}
           </div>
         </div>
       </div>

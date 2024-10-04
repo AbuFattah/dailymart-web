@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function AvatarDropdown() {
   return (
-    <div className="AvatarDropdown ">
+    <div className="AvatarDropdown z-40">
       <Popover className="relative">
         {({ open, close }) => (
           <>
